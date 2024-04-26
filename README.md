@@ -4,7 +4,6 @@ This repo is created for learning purpose.
 The files, folders or contents does not completely belong to me.
 
 References:
-
 https://github.com/facebookresearch/pifuhd  
 https://github.com/Daniil-Osokin/lightweight-human-pose-estimation.pytorch.git   
 https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64  

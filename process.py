@@ -1,3 +1,26 @@
+import os
+directory_path = '/content/3D-Reconstruction/pifuhd/sample_images/'
+filename = None
+updated_time = 0
+for entry in os.scandir(directory_path):
+  if entry.is_file():
+    mod_time = entry.stat().st_mtime_ns
+    if mod_time > updated_time:
+      filename = entry.name
+#try:
+image_path = '/content/3D-Reconstruction/pifuhd/sample_images/%s' % filename
+#except:
+#  image_path = '/content/pifuhd/sample_images/test.png'
+image_dir = os.path.dirname(image_path)
+file_name = os.path.splitext(os.path.basename(image_path))[0]
+
+obj_path = '/content/3D-Reconstruction/pifuhd/results/pifuhd_final/recon/result_%s_256.obj' % file_name
+out_img_path = '/content/3D-Reconstruction/pifuhd/results/pifuhd_final/recon/result_%s_256.png' % file_name
+video_path = '/content/3D-Reconstruction/pifuhd/results/pifuhd_final/recon/result_%s_256.mp4' % file_name
+video_display_path = '/content/3D-Reconstruction/pifuhd/results/pifuhd_final/result_%s_256_display.mp4' % file_name
+print(filename)
+os.chdir("/content/3D-Reconstruction/lightweight-human-pose-estimation.pytorch/")
+
 import torch
 import cv2
 import numpy as np
@@ -72,3 +95,17 @@ checkpoint = torch.load('checkpoint_iter_370000.pth', map_location='cpu')
 load_state(net, checkpoint)
 
 get_rect(net.cuda(), [image_path], 512)
+os.chdir("/content/3D-Reconstruction/pifuhd/")
+import subprocess
+command = [
+    "python",
+    "-m",
+    "apps.simple_test",
+    "-r",
+    "256",
+    "--use_rect",
+    "-i",
+    image_dir
+]
+subprocess.run(command)
+os.chdir("/content/3D-Reconstruction")
