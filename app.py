@@ -2,7 +2,7 @@ import streamlit as st
 import shutil
 import os
 
-colab_directory = "/content/pifuhd/sample_images"
+colab_directory = "/content/3D-Reconstruction/pifuhd/sample_images"
 
 if not os.path.exists(colab_directory):
     os.makedirs(colab_directory)

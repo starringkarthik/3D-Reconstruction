@@ -3,7 +3,7 @@ from obj2html import obj2html
 from IPython.display import display, HTML
 import streamlit as st
 
-os.chdir('/content/pifuhd/results/pifuhd_final/recon')
+os.chdir('/content/3D-Reconstruction/pifuhd/results/pifuhd_final/recon')
 
 st.title("3D Model")
 
@@ -24,4 +24,4 @@ if obj_files:
     st.link_button("Visualize using Online 3D Viewer", "https://3dviewer.net/")
 
 else:
-    st.write("No .obj or .mp4 files found in the directory.")
+    st.write("No .obj files found in the directory.")
