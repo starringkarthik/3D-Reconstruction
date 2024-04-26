@@ -18,3 +18,4 @@ obj_path = '/content/3D-Reconstruction/pifuhd/results/pifuhd_final/recon/result_
 out_img_path = '/content/3D-Reconstruction/pifuhd/results/pifuhd_final/recon/result_%s_256.png' % file_name
 video_path = '/content/3D-Reconstruction/pifuhd/results/pifuhd_final/recon/result_%s_256.mp4' % file_name
 video_display_path = '/content/3D-Reconstruction/pifuhd/results/pifuhd_final/result_%s_256_display.mp4' % file_name
+print(filename)
