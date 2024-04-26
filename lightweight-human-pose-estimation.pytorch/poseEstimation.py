@@ -67,3 +67,8 @@ def get_rect(net, images, height_size):
             rects.append([x1, y1, 2*radius, 2*radius])
 
         np.savetxt(rect_path, np.array(rects), fmt='%d')
+net = PoseEstimationWithMobileNet()
+checkpoint = torch.load('checkpoint_iter_370000.pth', map_location='cpu')
+load_state(net, checkpoint)
+
+get_rect(net.cuda(), [image_path], 512)
